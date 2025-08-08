@@ -166,8 +166,8 @@ with a list of options returned by the weather provider and set the
 5. [Backend + Frontend] Login + Authentication
     1. Implement the login endpoint to check against username and password
     2. How will the backend know that the user is authenticated?
-    3. Filter the list of device groups returned by the `/device-groups`
-endpoint to only return the user's device groups.
+    3. Why is the list of device groups on the frontend showing all
+       device groups?
     4. On the frontend, check if the user is currently authenticated, if
 not, redirect to login page
 
