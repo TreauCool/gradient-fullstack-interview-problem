@@ -12,7 +12,8 @@ to provide and explain the logic for all problem solutions themselves.
 Prior to the interview, the candidate should ensure that they can run
 the stack of their choice. The work involved to do so is minimal, the
 candidate only needs to install docker and docker-compose, then run
-`docker-compose up` on one of the stacks (see [Setup](#Setup)).
+`docker-compose up` on one of the stacks (see [Setup](#Setup) and
+[Running the Stack](#running-the-stack)).
 
 ## Setup
 
@@ -21,7 +22,7 @@ and docker-compose installed. See [this
 page](https://medium.com/@piyushkashyap045/comprehensive-guide-installing-docker-and-docker-compose-on-windows-linux-and-macos-a022cf82ac0b)
 for instructions on installing docker on Windows, Mac, and Linux.
 
-## Running the stack
+## Running the Stack
 
 1. *Python Backend:*
 
@@ -90,7 +91,7 @@ See [./seed.sql](./seed.sql) for the database schema
         "id": int,
         "name": string,
         "city": string,
-        "weatherWidgetId": string
+        "weatherWidgetId": string|null
       },
       ...
     ],
