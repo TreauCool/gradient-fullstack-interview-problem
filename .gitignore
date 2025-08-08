@@ -1,4 +1,4 @@
 .idea
 python-backend/venv
 go-backend/tmp
-frontend/node_modules
+node_modules

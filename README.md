@@ -2,8 +2,8 @@
 
 This repository contains a toy environment setup with some problems to
 work on during a fullstack interview. There is a frontend and a choice
-of one of two backends - Python or Go. The candidate will choose _one_
-backend to work on. They are not expected to work on both backends.
+of backends - Python, Go, or NodeJS. The candidate will choose _one_
+backend to work on. They are not expected to work on multiple backends.
 
 During the interview, the candidate can use online or AI resources to
 look up function syntax, libraries, or framework usage, but is expected
@@ -33,6 +33,12 @@ docker-compose -f docker-compose-python-backend.yml up
 
 ```shell
 docker-compose -f docker-compose-go-backend.yml up
+```
+
+3. *NodeJS Backend:*
+
+```shell
+docker-compose -f docker-compose-nodejs-backend.yml up
 ```
 
 You should be able to view the frontend at

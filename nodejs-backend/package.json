@@ -1,0 +1,21 @@
+{
+  "name": "gradient-fullstack-interview-nodejs-backend",
+  "version": "1.0.0",
+  "description": "A toy API backend in Node.js with Express and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
