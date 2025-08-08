@@ -148,28 +148,27 @@ The problems are listed in relative order of difficulty.
 
 1. [Frontend] Not seeing all devices in a group and seeing incorrect
    count
-  a. On the device list page, why is the count of devices incorrect?
-  b. On the device list page, why are we not seeing all devices in the
+    1. On the device list page, why is the count of devices incorrect?
+    2. On the device list page, why are we not seeing all devices in the
 group?
 
 2. [Backend] Implement an endpoint to add a device
-  a. add a POST endpoint that takes a device group id and a serial
+    1. add a POST endpoint that takes a device group id and a serial
 number and adds a device record matching that.
 
 
 4. [Frontend] Render list of city options from the weather provider
-
-  a. In the [create-device-group
+    1. In the [create-device-group
 page](./frontend/src/app/create-device-group/Page.jsx), present the user
 with a list of options returned by the weather provider and set the
 `weaterWidgetId` and `city` based off of the selected option.
 
 5. [Backend + Frontend] Login + Authentication
-  a. Implement the login endpoint to check against username and password
-  b. How will the backend know that the user is authenticated?
-  c. Filter the list of device groups returned by the `/device-groups`
+    1. Implement the login endpoint to check against username and password
+    2. How will the backend know that the user is authenticated?
+    3. Filter the list of device groups returned by the `/device-groups`
 endpoint to only return the user's device groups.
-  d. On the frontend, check if the user is currently authenticated, if
+    4. On the frontend, check if the user is currently authenticated, if
 not, redirect to login page
 
 6. What other problems are there in the codebase?
