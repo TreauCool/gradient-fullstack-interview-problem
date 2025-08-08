@@ -1,0 +1,64 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: gradient
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 2s
+      interval: 5s
+      start_period: 30s
+      retries: 10
+    ports:
+      - '3306:3306'
+  seed-db:
+    image: mysql:8.0
+    entrypoint: /bin/bash
+    depends_on:
+      db:
+        condition: service_healthy
+    command: -c "mysql -u root -ppass -h db -D gradient < /seed.sql"
+    volumes:
+      - ./seed.sql:/seed.sql
+  go-backend:
+    build: go-backend
+    depends_on:
+      seed-db:
+        condition: service_completed_successfully
+    entrypoint: air
+    command: -c .air.toml
+    working_dir: /app
+    environment:
+      APP_PORT: 5000
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: pass
+      DB_NAME: gradient
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5000/health"]
+      timeout: 2s
+      interval: 10s
+      start_period: 30s
+      retries: 10
+    volumes:
+      - ./go-backend/:/app
+    ports:
+      - '5000:5000'
+  frontend:
+    build: frontend
+    depends_on:
+      go-backend:
+        condition: service_healthy
+    entrypoint: npm
+    command: run dev -- -H 0.0.0.0
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5000
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/jsconfig.json:/app/jsconfig.json
+      - ./frontend/next.config.mjs:/app/next.config.mjs
+      - ./frontend/postcss.config.mjs:/app/postcss.config.mjs
+      - ./frontend/public:/app/public
+    ports:
+      - '3000:3000'
